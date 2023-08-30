@@ -117,9 +117,9 @@ position = Vector2(704, 112)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 texture_filter = 1
-offset_left = -48.0
+offset_left = 40.0
 offset_top = 224.0
-offset_right = 264.0
+offset_right = 200.0
 offset_bottom = 256.0
 theme_override_fonts/normal_font = ExtResource("11_ubojl")
 theme_override_fonts/bold_font = ExtResource("11_ubojl")

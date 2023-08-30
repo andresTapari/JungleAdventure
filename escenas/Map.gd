@@ -10,6 +10,6 @@ func _on_body_entered(body):
 		# Esperamos a que termine la animacion
 		await $AnimatedSprite2D.animation_finished
 		# Elimiamos el nodo
-		queue_free()
+#		queue_free()
 		# Cambamos escena
-#		get_tree().change_scene_to_file("res://escenas/endGame.tscn")
+		get_tree().change_scene_to_file("res://escenas/endGame.tscn")
