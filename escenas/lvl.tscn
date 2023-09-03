@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://yoqufqcnk3js"]
+[gd_scene load_steps=13 format=3 uid="uid://yoqufqcnk3js"]
 
 [ext_resource type="Texture2D" uid="uid://bjlyg4uuo41j7" path="res://assets/parallax background/plx-1.png" id="1_j8ri2"]
 [ext_resource type="Texture2D" uid="uid://dptj2xkfhxjpg" path="res://assets/parallax background/plx-2.png" id="2_o5gph"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bimd1aopu5tjg" path="res://escenas/Map.tscn" id="9_83xvc"]
 [ext_resource type="PackedScene" uid="uid://dy3tywfgvnolu" path="res://escenas/kill_zone.tscn" id="9_dmla0"]
 [ext_resource type="FontFile" uid="uid://cxt2mrujtg68w" path="res://assets/font/Pixeled.ttf" id="11_ubojl"]
+[ext_resource type="PackedScene" uid="uid://cmr0jjtjkvmch" path="res://escenas/virtual_joystick/virtual_joystick.tscn" id="12_7jf8s"]
 
 [node name="lvl" type="Node2D"]
 texture_filter = 1
@@ -129,3 +130,6 @@ bbcode_enabled = true
 text = "[center]Usa las [color=green][b]flechas[/b][/color] para moverte y
  la [color=green][b]barra espaciadora[/b][/color] para saltar.[/center]"
 tab_size = 6
+
+[node name="CanvasLayer" parent="." instance=ExtResource("12_7jf8s")]
+metadata/_edit_vertical_guides_ = [48.0]
