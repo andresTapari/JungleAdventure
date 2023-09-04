@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8if2owj7mev7"]
+
+[ext_resource type="Script" path="res://escenas/virtual_joystick/AnalogStick.gd" id="1_3ad1x"]
+[ext_resource type="Texture2D" uid="uid://c5te2ve0m41r" path="res://assets/virtual_joystick/l_stick_zone.png" id="1_8sorc"]
+[ext_resource type="Texture2D" uid="uid://dep2fja12ornl" path="res://assets/virtual_joystick/l_stick.png" id="2_b1017"]
+[ext_resource type="Texture2D" uid="uid://c1imygogr1m67" path="res://assets/icon.png" id="3_wsojy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovnlu"]
+radius = 20.0
+
+[node name="AnalogStick" type="TouchScreenButton"]
+texture_filter = 1
+position = Vector2(106, 538)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_ovnlu")
+script = ExtResource("1_3ad1x")
+
+[node name="LStickZone" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8sorc")
+
+[node name="LStick" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_b1017")
+
+[node name="Center" type="Marker2D" parent="."]
+visible = false
+scale = Vector2(0.666667, 0.666667)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Center"]
+visible = false
+texture = ExtResource("3_wsojy")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="released" from="." to="." method="_on_released"]

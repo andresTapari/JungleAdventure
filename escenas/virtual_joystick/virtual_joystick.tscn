@@ -1,52 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmr0jjtjkvmch"]
+[gd_scene load_steps=5 format=3 uid="uid://cmr0jjtjkvmch"]
 
-[ext_resource type="Texture2D" uid="uid://bqg5nl2h3ognq" path="res://assets/virtual_joystick/button_a_normal.svg" id="1_hh76r"]
 [ext_resource type="Script" path="res://escenas/virtual_joystick/virtual_joystick.gd" id="1_nv4tw"]
-[ext_resource type="Texture2D" uid="uid://conjt6vtrnq7w" path="res://assets/virtual_joystick/button_a_pressed.svg" id="2_nkf4r"]
-[ext_resource type="Texture2D" uid="uid://ktdotttkaurr" path="res://assets/virtual_joystick/l_stick_region.svg" id="3_ctf3p"]
-[ext_resource type="Texture2D" uid="uid://d4i0uow2j3i8b" path="res://assets/virtual_joystick/L_stick_normal.svg" id="4_dggiv"]
-[ext_resource type="Texture2D" uid="uid://c1imygogr1m67" path="res://assets/icon.png" id="5_kc7ra"]
+[ext_resource type="Texture2D" uid="uid://drcstjrjckj7f" path="res://assets/virtual_joystick/button_a_normal.png" id="2_thwp2"]
+[ext_resource type="Texture2D" uid="uid://b80npo48i2qaw" path="res://assets/virtual_joystick/button_a_pressed.png" id="3_7cxle"]
+[ext_resource type="PackedScene" uid="uid://c8if2owj7mev7" path="res://escenas/virtual_joystick/AnalogStick.tscn" id="4_74ptl"]
 
 [node name="virtual_joystick" type="CanvasLayer"]
 script = ExtResource("1_nv4tw")
-metadata/_edit_vertical_guides_ = [48.0, 88.0, 136.0]
 metadata/_edit_horizontal_guides_ = [536.0]
 
 [node name="TouchScreenButton_A" type="TouchScreenButton" parent="."]
-position = Vector2(992, 496)
-scale = Vector2(2, 2)
-texture_normal = ExtResource("1_hh76r")
-texture_pressed = ExtResource("2_nkf4r")
+unique_name_in_owner = true
+position = Vector2(1008, 496)
+texture_normal = ExtResource("2_thwp2")
+texture_pressed = ExtResource("3_7cxle")
 action = "ui_select"
 
-[node name="TouchScreenButton_L_stick" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton_L_stick" parent="." instance=ExtResource("4_74ptl")]
 unique_name_in_owner = true
-position = Vector2(48, 472)
-scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("3_ctf3p")
-texture_pressed = ExtResource("3_ctf3p")
+position = Vector2(104, 536)
 
-[node name="Center" type="Marker2D" parent="TouchScreenButton_L_stick"]
-position = Vector2(42.6667, 42.6667)
-scale = Vector2(0.666667, 0.666667)
-metadata/_edit_group_ = true
-
-[node name="Icon" type="Sprite2D" parent="TouchScreenButton_L_stick/Center"]
-texture = ExtResource("5_kc7ra")
-
-[node name="TextureRect" type="TextureRect" parent="TouchScreenButton_L_stick/Center"]
-unique_name_in_owner = true
-anchors_preset = 15
+[node name="CheckBox" type="CheckBox" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_dggiv")
+offset_left = -160.0
+offset_top = 16.0
+offset_right = -17.0
+offset_bottom = 47.0
+grow_horizontal = 0
+button_pressed = true
+text = "Virtual Joystick"
+flat = true
 
 [connection signal="pressed" from="TouchScreenButton_A" to="." method="_on_touch_screen_button_a_pressed"]
-[connection signal="pressed" from="TouchScreenButton_L_stick" to="." method="_on_touch_screen_button_l_stick_pressed"]
-[connection signal="released" from="TouchScreenButton_L_stick" to="." method="_on_touch_screen_button_l_stick_released"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
